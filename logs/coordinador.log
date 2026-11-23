@@ -97,3 +97,28 @@
 30; 0; TURNO_RECHAZADO; Cupo agotado (10) para V2
 31; 0; TURNO_RECHAZADO; Cupo agotado (10) para V2
 32; 0; ESTADO_CONSULTADO; Estado enviado a V1
+1; 0; INICIO_COORDINADOR; Cupo=10, Modo=NORMAL (con exclusion mutua)
+2; 0; VENTANILLA_ACTIVA; Ventanilla V1 paso de SIN_CONEXION a ACTIVA
+3; 0; VENTANILLA_ACTIVA; Ventanilla V2 paso de SIN_CONEXION a ACTIVA
+4; 0; VENTANILLA_ACTIVA; Ventanilla V3 paso de SIN_CONEXION a ACTIVA
+5; 0; TURNO_ASIGNADO; Turno #1 entregado a V1
+6; 0; TURNO_LLAMADO; Turno #1 llamado por V1
+7; 0; ESTADO_CONSULTADO; Estado enviado a V1
+8; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+1; 0; INICIO_COORDINADOR; Cupo=10, Modo=NORMAL (con exclusion mutua)
+2; 0; VENTANILLA_ACTIVA; Ventanilla V1 paso de SIN_CONEXION a ACTIVA
+3; 0; VENTANILLA_ACTIVA; Ventanilla V2 paso de SIN_CONEXION a ACTIVA
+4; 0; VENTANILLA_ACTIVA; Ventanilla V3 paso de SIN_CONEXION a ACTIVA
+5; 0; TURNO_ASIGNADO; Turno #1 entregado a V1
+6; 0; TURNO_LLAMADO; Turno #1 llamado por V1
+7; 0; ESTADO_CONSULTADO; Estado enviado a V1
+8; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+9; 0; TURNO_ASIGNADO; Turno #2 entregado a V2
+10; 0; TURNO_LLAMADO; Turno #2 llamado por V2
+11; 0; ESTADO_CONSULTADO; Estado enviado a V2
+12; 0; TURNO_ASIGNADO; Turno #3 entregado a V3
+13; 0; TURNO_LLAMADO; Turno #3 llamado por V3
+14; 0; ESTADO_CONSULTADO; Estado enviado a V3
+15; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+16; 0; VENTANILLA_CAIDA; Ventanilla V3 sin latidos durante mas de 6 segundos
+17; 0; VENTANILLA_ACTIVA; Ventanilla V3 paso de CAIDA a ACTIVA

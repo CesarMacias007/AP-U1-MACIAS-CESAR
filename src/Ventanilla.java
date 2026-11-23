@@ -11,11 +11,14 @@ import java.util.Properties;
 import java.util.Scanner;
 
 public class Ventanilla {
+    private static final int INTERVALO_LATIDO_MS = 2000; // C1: Latido cada 2 segundos
+
     private final int id;
     private final String host;
     private final int puerto;
     private final String token;
     private int reloj = 0;
+    private volatile boolean coordinadorActivo = true;
 
     public Ventanilla(int id, String host, int puerto, String token) {
         this.id = id;
@@ -24,7 +27,7 @@ public class Ventanilla {
         this.token = token;
     }
 
-    public Map<String, String> enviarSolicitud(String tipo, String tokenEnviar) throws IOException {
+    public synchronized Map<String, String> enviarSolicitud(String tipo, String tokenEnviar) throws IOException {
         reloj++;
         String json = MensajeJson.construir(
                 "tipo", tipo,
@@ -33,7 +36,6 @@ public class Ventanilla {
                 "lamport", reloj
         );
 
-        // Delimitacion por linea (\n) mediante println y readLine (Requerimiento A2)
         try (
                 Socket socket = new Socket(host, puerto);
                 PrintWriter out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8), true);
@@ -48,8 +50,41 @@ public class Ventanilla {
         }
     }
 
+    // Requerimiento C1: Envia latido cada 2 segundos en segundo plano
+    public void iniciarLatidos() {
+        Thread hiloLatidos = new Thread(() -> {
+            while (true) {
+                try {
+                    enviarSolicitud("LATIDO", token);
+                    if (!coordinadorActivo) {
+                        coordinadorActivo = true;
+                        System.out.println("\n[V" + id + "] Conexion restablecida con el coordinador.");
+                        System.out.print("V" + id + "> ");
+                    }
+                } catch (IOException e) {
+                    if (coordinadorActivo) {
+                        coordinadorActivo = false;
+                        System.out.println("\n[V" + id + "] ALERTA: Coordinador no responde al latido.");
+                        System.out.print("V" + id + "> ");
+                    }
+                }
+
+                try {
+                    Thread.sleep(INTERVALO_LATIDO_MS);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+            }
+        });
+        hiloLatidos.setDaemon(true);
+        hiloLatidos.start();
+    }
+
     public void iniciarConsola() {
-        System.out.println("=== VENTANILLA V" + id + " (Parte A: Comunicacion y Token) ===");
+        iniciarLatidos(); // Arranca los latidos automaticos
+
+        System.out.println("=== VENTANILLA V" + id + " (Latidos cada 2s activos) ===");
         System.out.println("Ordenes: turno | llamar | estado | token_malo | salir");
 
         try (Scanner sc = new Scanner(System.in, StandardCharsets.UTF_8)) {
@@ -81,10 +116,13 @@ public class Ventanilla {
                             }
                         }
                         case "estado" -> {
+                            // Requerimiento C3: Muestra activas y caidas
                             Map<String, String> r = enviarSolicitud("ESTADO", token);
                             System.out.println("-> ESTADO: Emitidos=" + r.get("emitidos") + "/" + r.get("cupo")
-                                    + ", Atendidos=" + r.get("atendidos")
-                                    + ", En espera=" + r.get("en_espera"));
+                                    + " | Atendidos=" + r.get("atendidos")
+                                    + " | En espera=" + r.get("en_espera")
+                                    + " | Activas=" + r.get("activas")
+                                    + " | Caidas=" + r.get("caidas"));
                         }
                         case "token_malo" -> {
                             Map<String, String> r = enviarSolicitud("TURNO", "TOKEN_INCORRECTO");
@@ -94,7 +132,7 @@ public class Ventanilla {
                         default -> System.out.println("Orden no valida. Use: turno, llamar, estado, token_malo, salir");
                     }
                 } catch (IOException e) {
-                    System.out.println("-> Error de conexion con el coordinador: " + e.getMessage());
+                    System.out.println("-> ERROR: Coordinador caido. Operacion cancelada para mantener consistencia.");
                 }
             }
         }

@@ -13,23 +13,32 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Queue;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Coordinador {
+    private static final long TIMEOUT_CAIDA_MS = 6000L; // C2: 6 segundos sin latidos
+
     private final int cupo;
     private final String tokenValido;
     private final boolean modoInseguro;
     private final Path rutaLog;
 
     private final Object lockTurnos = new Object();
+    private final Object lockLatidos = new Object();
+
     private int emitidos = 0;
     private int atendidos = 0;
     private int reloj = 0;
     private final Queue<Integer> colaEspera = new LinkedList<>();
+
+    private final Map<Integer, Long> ultimoLatido = new ConcurrentHashMap<>();
+    private final Map<Integer, String> estadoVentanillas = new ConcurrentHashMap<>();
 
     public Coordinador(int cupo, String tokenValido, boolean modoInseguro) throws IOException {
         this.cupo = cupo;
@@ -37,6 +46,10 @@ public class Coordinador {
         this.modoInseguro = modoInseguro;
         Files.createDirectories(Paths.get("logs"));
         this.rutaLog = Paths.get("logs", "coordinador.log");
+
+        for (int v : new int[]{1, 2, 3}) {
+            estadoVentanillas.put(v, "SIN_CONEXION");
+        }
 
         String modo = modoInseguro ? "INSEGURO (pausa 50 ms)" : "NORMAL (con exclusion mutua)";
         registrarLog("INICIO_COORDINADOR", "Cupo=" + cupo + ", Modo=" + modo);
@@ -55,7 +68,37 @@ public class Coordinador {
         return reloj;
     }
 
-    // Sin synchronized en el metodo para permitir concurrencia real entre hilos
+    // Requerimiento C2: Hilo que verifica cada 500 ms si alguna ventanilla supero 6s sin latidos
+    public void iniciarMonitorLatidos() {
+        Thread monitor = new Thread(() -> {
+            while (true) {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+
+                long ahora = System.currentTimeMillis();
+                synchronized (lockLatidos) {
+                    for (int vid : new int[]{1, 2, 3}) {
+                        Long ultimo = ultimoLatido.get(vid);
+                        if (ultimo != null && (ahora - ultimo) > TIMEOUT_CAIDA_MS) {
+                            if ("ACTIVA".equals(estadoVentanillas.get(vid))) {
+                                estadoVentanillas.put(vid, "CAIDA");
+                                int l = registrarLog("VENTANILLA_CAIDA",
+                                        "Ventanilla V" + vid + " sin latidos durante mas de 6 segundos");
+                                System.out.println("[COORDINADOR] ALERTA: Ventanilla V" + vid + " marcada como CAIDA (L=" + l + ")");
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        monitor.setDaemon(true);
+        monitor.start();
+    }
+
     public String procesarSolicitud(String lineaJson) {
         Map<String, String> msg = MensajeJson.parsear(lineaJson);
         String tipo = msg.getOrDefault("tipo", "");
@@ -73,7 +116,26 @@ public class Coordinador {
             );
         }
 
-        // B1 y B3: Asignacion de turnos (Normal vs -inseguro)
+        // Requerimientos C1 y C2: Recepcion de latidos y reactivacion
+        if ("LATIDO".equals(tipo)) {
+            synchronized (lockLatidos) {
+                ultimoLatido.put(vid, System.currentTimeMillis());
+                String estadoAnterior = estadoVentanillas.getOrDefault(vid, "SIN_CONEXION");
+                if (!"ACTIVA".equals(estadoAnterior)) {
+                    estadoVentanillas.put(vid, "ACTIVA");
+                    int l = registrarLog("VENTANILLA_ACTIVA",
+                            "Ventanilla V" + vid + " paso de " + estadoAnterior + " a ACTIVA");
+                    System.out.println("[COORDINADOR] INFO: Ventanilla V" + vid + " marcada como ACTIVA (L=" + l + ")");
+                }
+            }
+            return MensajeJson.construir(
+                    "tipo", "RESPUESTA",
+                    "resultado", "OK",
+                    "lamport", reloj
+            );
+        }
+
+        // B1 y B3: Asignacion de turnos
         if ("TURNO".equals(tipo)) {
             if (!modoInseguro) {
                 synchronized (lockTurnos) {
@@ -103,7 +165,6 @@ public class Coordinador {
                     );
                 }
             } else {
-                // B3: Lectura y actualizacion separadas por 50 ms sin exclusion mutua
                 int actual = emitidos;
                 if (actual >= cupo) {
                     int l = registrarLog("TURNO_RECHAZADO", "Cupo agotado (" + cupo + ") para V" + vid);
@@ -139,7 +200,7 @@ public class Coordinador {
             }
         }
 
-        // B1: LLAMAR entrega turnos en espera en orden FIFO a una sola ventanilla
+        // B1: Llamar siguiente turno
         if ("LLAMAR".equals(tipo)) {
             synchronized (lockTurnos) {
                 if (colaEspera.isEmpty()) {
@@ -166,18 +227,33 @@ public class Coordinador {
             }
         }
 
+        // Requerimiento C3: Estado incluye ventanillas activas y caidas
         if ("ESTADO".equals(tipo)) {
             synchronized (lockTurnos) {
-                int l = registrarLog("ESTADO_CONSULTADO", "Estado enviado a V" + vid);
-                return MensajeJson.construir(
-                        "tipo", "RESPUESTA",
-                        "resultado", "ESTADO",
-                        "emitidos", emitidos,
-                        "cupo", cupo,
-                        "atendidos", atendidos,
-                        "en_espera", new ArrayList<>(colaEspera),
-                        "lamport", l
-                );
+                synchronized (lockLatidos) {
+                    List<Integer> activas = new ArrayList<>();
+                    List<Integer> caidas = new ArrayList<>();
+                    for (int v : new int[]{1, 2, 3}) {
+                        String est = estadoVentanillas.get(v);
+                        if ("ACTIVA".equals(est)) {
+                            activas.add(v);
+                        } else if ("CAIDA".equals(est)) {
+                            caidas.add(v);
+                        }
+                    }
+                    int l = registrarLog("ESTADO_CONSULTADO", "Estado enviado a V" + vid);
+                    return MensajeJson.construir(
+                            "tipo", "RESPUESTA",
+                            "resultado", "ESTADO",
+                            "emitidos", emitidos,
+                            "cupo", cupo,
+                            "atendidos", atendidos,
+                            "en_espera", new ArrayList<>(colaEspera),
+                            "activas", activas,
+                            "caidas", caidas,
+                            "lamport", l
+                    );
+                }
             }
         }
 
@@ -208,6 +284,8 @@ public class Coordinador {
         String token = props.getProperty("token", "").trim();
 
         Coordinador coord = new Coordinador(cupo, token, inseguro);
+        coord.iniciarMonitorLatidos(); // Inicia deteccion de ventanillas caidas
+
         ExecutorService pool = Executors.newCachedThreadPool();
 
         try (ServerSocket serverSocket = new ServerSocket(puerto)) {
