@@ -16,94 +16,144 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Queue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class Coordinador {
     private final int cupo;
     private final String tokenValido;
+    private final boolean modoInseguro;
     private final Path rutaLog;
 
+    private final Object lockTurnos = new Object();
     private int emitidos = 0;
     private int atendidos = 0;
     private int reloj = 0;
     private final Queue<Integer> colaEspera = new LinkedList<>();
 
-    public Coordinador(int cupo, String tokenValido) throws IOException {
+    public Coordinador(int cupo, String tokenValido, boolean modoInseguro) throws IOException {
         this.cupo = cupo;
         this.tokenValido = tokenValido;
+        this.modoInseguro = modoInseguro;
         Files.createDirectories(Paths.get("logs"));
         this.rutaLog = Paths.get("logs", "coordinador.log");
-        registrarLog("INICIO_COORDINADOR", "Coordinador iniciado con cupo=" + cupo);
+
+        String modo = modoInseguro ? "INSEGURO (pausa 50 ms)" : "NORMAL (con exclusion mutua)";
+        registrarLog("INICIO_COORDINADOR", "Cupo=" + cupo + ", Modo=" + modo);
+        System.out.println("[COORDINADOR 0] Iniciado | Cupo=" + cupo + " | Modo=" + modo);
     }
 
-    private synchronized void registrarLog(String evento, String detalle) {
+    private synchronized int registrarLog(String evento, String detalle) {
         reloj++;
         String linea = reloj + "; 0; " + evento + "; " + detalle + System.lineSeparator();
         try {
             Files.writeString(rutaLog, linea, StandardCharsets.UTF_8,
                     StandardOpenOption.CREATE, StandardOpenOption.APPEND);
         } catch (IOException e) {
-            System.err.println("Error escribiendo en bitacora: " + e.getMessage());
+            System.err.println("Error escribiendo bitacora: " + e.getMessage());
         }
+        return reloj;
     }
 
-    public synchronized String procesarSolicitud(String lineaJson) {
+    // Sin synchronized en el metodo para permitir concurrencia real entre hilos
+    public String procesarSolicitud(String lineaJson) {
         Map<String, String> msg = MensajeJson.parsear(lineaJson);
         String tipo = msg.getOrDefault("tipo", "");
         String token = msg.getOrDefault("token", "");
         int vid = Integer.parseInt(msg.getOrDefault("ventanilla", "-1"));
 
-        // Requerimiento A3: Validar token en toda solicitud y registrar rechazo
+        // A3: Validacion de token
         if (token.isEmpty() || !tokenValido.equals(token)) {
-            registrarLog("RECHAZO_TOKEN", "Solicitud " + tipo + " rechazada desde V" + vid + " por token invalido");
-            System.out.println("[COORDINADOR] Rechazo por token invalido desde V" + vid);
+            int l = registrarLog("RECHAZO_TOKEN", "Solicitud " + tipo + " rechazada desde V" + vid + " por token invalido");
             return MensajeJson.construir(
                     "tipo", "RESPUESTA",
                     "resultado", "RECHAZADA",
                     "motivo", "token invalido",
-                    "lamport", reloj
+                    "lamport", l
             );
         }
 
-        // Requerimiento A1: Procesar TURNO, LLAMAR y ESTADO
-        switch (tipo) {
-            case "TURNO" -> {
-                if (emitidos >= cupo) {
-                    registrarLog("TURNO_RECHAZADO", "Cupo agotado (" + cupo + ") solicitado por V" + vid);
+        // B1 y B3: Asignacion de turnos (Normal vs -inseguro)
+        if ("TURNO".equals(tipo)) {
+            if (!modoInseguro) {
+                synchronized (lockTurnos) {
+                    if (emitidos >= cupo) {
+                        int l = registrarLog("TURNO_RECHAZADO", "Cupo agotado (" + cupo + ") para V" + vid);
+                        return MensajeJson.construir(
+                                "tipo", "RESPUESTA",
+                                "resultado", "RECHAZADA",
+                                "motivo", "cupo agotado",
+                                "emitidos", emitidos,
+                                "cupo", cupo,
+                                "lamport", l
+                        );
+                    }
+                    emitidos++;
+                    int numero = emitidos;
+                    colaEspera.add(numero);
+                    int l = registrarLog("TURNO_ASIGNADO", "Turno #" + numero + " entregado a V" + vid);
+                    System.out.println("[COORDINADOR] Turno #" + numero + "/" + cupo + " asignado a V" + vid);
+                    return MensajeJson.construir(
+                            "tipo", "RESPUESTA",
+                            "resultado", "ASIGNADO",
+                            "numero", numero,
+                            "emitidos", emitidos,
+                            "cupo", cupo,
+                            "lamport", l
+                    );
+                }
+            } else {
+                // B3: Lectura y actualizacion separadas por 50 ms sin exclusion mutua
+                int actual = emitidos;
+                if (actual >= cupo) {
+                    int l = registrarLog("TURNO_RECHAZADO", "Cupo agotado (" + cupo + ") para V" + vid);
                     return MensajeJson.construir(
                             "tipo", "RESPUESTA",
                             "resultado", "RECHAZADA",
                             "motivo", "cupo agotado",
                             "emitidos", emitidos,
                             "cupo", cupo,
-                            "lamport", reloj
+                            "lamport", l
                     );
                 }
-                emitidos++;
-                colaEspera.add(emitidos);
-                registrarLog("TURNO_ASIGNADO", "Turno #" + emitidos + " entregado a V" + vid);
-                System.out.println("[COORDINADOR] Turno #" + emitidos + " asignado a V" + vid);
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+                emitidos = actual + 1;
+                int numero = emitidos;
+                synchronized (colaEspera) {
+                    colaEspera.add(numero);
+                }
+                int l = registrarLog("TURNO_ASIGNADO_INSEGURO", "Turno #" + numero + " entregado a V" + vid);
+                System.out.println("[COORDINADOR -INSEGURO] Turno #" + numero + "/" + cupo + " asignado a V" + vid);
                 return MensajeJson.construir(
                         "tipo", "RESPUESTA",
                         "resultado", "ASIGNADO",
-                        "numero", emitidos,
+                        "numero", numero,
                         "emitidos", emitidos,
                         "cupo", cupo,
-                        "lamport", reloj
+                        "lamport", l
                 );
             }
-            case "LLAMAR" -> {
+        }
+
+        // B1: LLAMAR entrega turnos en espera en orden FIFO a una sola ventanilla
+        if ("LLAMAR".equals(tipo)) {
+            synchronized (lockTurnos) {
                 if (colaEspera.isEmpty()) {
-                    registrarLog("LLAMAR_RECHAZADO", "No hay turnos en espera para V" + vid);
+                    int l = registrarLog("LLAMAR_RECHAZADO", "No hay turnos en espera para V" + vid);
                     return MensajeJson.construir(
                             "tipo", "RESPUESTA",
                             "resultado", "RECHAZADA",
                             "motivo", "no hay turnos en espera",
-                            "lamport", reloj
+                            "lamport", l
                     );
                 }
                 int turnoLlamado = colaEspera.poll();
                 atendidos++;
-                registrarLog("TURNO_LLAMADO", "Turno #" + turnoLlamado + " llamado por V" + vid);
+                int l = registrarLog("TURNO_LLAMADO", "Turno #" + turnoLlamado + " llamado por V" + vid);
                 System.out.println("[COORDINADOR] V" + vid + " llama al turno #" + turnoLlamado);
                 return MensajeJson.construir(
                         "tipo", "RESPUESTA",
@@ -111,11 +161,14 @@ public class Coordinador {
                         "numero", turnoLlamado,
                         "emitidos", emitidos,
                         "cupo", cupo,
-                        "lamport", reloj
+                        "lamport", l
                 );
             }
-            case "ESTADO" -> {
-                registrarLog("ESTADO_CONSULTADO", "Estado enviado a V" + vid);
+        }
+
+        if ("ESTADO".equals(tipo)) {
+            synchronized (lockTurnos) {
+                int l = registrarLog("ESTADO_CONSULTADO", "Estado enviado a V" + vid);
                 return MensajeJson.construir(
                         "tipo", "RESPUESTA",
                         "resultado", "ESTADO",
@@ -123,22 +176,28 @@ public class Coordinador {
                         "cupo", cupo,
                         "atendidos", atendidos,
                         "en_espera", new ArrayList<>(colaEspera),
-                        "lamport", reloj
-                );
-            }
-            default -> {
-                registrarLog("SOLICITUD_INVALIDA", "Tipo desconocido: " + tipo);
-                return MensajeJson.construir(
-                        "tipo", "RESPUESTA",
-                        "resultado", "RECHAZADA",
-                        "motivo", "tipo de solicitud no soportado",
-                        "lamport", reloj
+                        "lamport", l
                 );
             }
         }
+
+        int l = registrarLog("SOLICITUD_INVALIDA", "Tipo desconocido: " + tipo);
+        return MensajeJson.construir(
+                "tipo", "RESPUESTA",
+                "resultado", "RECHAZADA",
+                "motivo", "tipo de solicitud no soportado",
+                "lamport", l
+        );
     }
 
     public static void main(String[] args) throws IOException {
+        boolean inseguro = false;
+        for (String arg : args) {
+            if ("-inseguro".equalsIgnoreCase(arg)) {
+                inseguro = true;
+            }
+        }
+
         Properties props = new Properties();
         try (FileInputStream fis = new FileInputStream("config.properties")) {
             props.load(fis);
@@ -148,19 +207,19 @@ public class Coordinador {
         int cupo = Integer.parseInt(props.getProperty("cupo", "10").trim());
         String token = props.getProperty("token", "").trim();
 
-        Coordinador coord = new Coordinador(cupo, token);
+        Coordinador coord = new Coordinador(cupo, token, inseguro);
+        ExecutorService pool = Executors.newCachedThreadPool();
 
         try (ServerSocket serverSocket = new ServerSocket(puerto)) {
-            System.out.println("[COORDINADOR 0] Escuchando en puerto " + puerto + " (Cupo=" + cupo + ")...");
+            System.out.println("[COORDINADOR 0] Escuchando en puerto " + puerto + "...");
             while (true) {
                 Socket cliente = serverSocket.accept();
-                new Thread(() -> manejarConexion(cliente, coord)).start();
+                pool.submit(() -> manejarConexion(cliente, coord));
             }
         }
     }
 
     private static void manejarConexion(Socket socket, Coordinador coord) {
-        // Requerimiento A2: Delimitacion de mensajes por salto de linea (readLine / println)
         try (
                 Socket s = socket;
                 BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream(), StandardCharsets.UTF_8));
@@ -169,8 +228,7 @@ public class Coordinador {
             String linea;
             while ((linea = in.readLine()) != null) {
                 if (!linea.isBlank()) {
-                    String respuesta = coord.procesarSolicitud(linea);
-                    out.println(respuesta);
+                    out.println(coord.procesarSolicitud(linea));
                 }
             }
         } catch (IOException ignored) {

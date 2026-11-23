@@ -1,0 +1,99 @@
+1; 0; INICIO_COORDINADOR; Coordinador iniciado con cupo=10
+2; 0; TURNO_ASIGNADO; Turno #1 entregado a V1
+3; 0; TURNO_LLAMADO; Turno #1 llamado por V1
+4; 0; ESTADO_CONSULTADO; Estado enviado a V1
+5; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+6; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+7; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+8; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+9; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+10; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+11; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+12; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+13; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+14; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+15; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+16; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+17; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+18; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+19; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+20; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+21; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+22; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+23; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+24; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+25; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+26; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+27; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+28; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+29; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+30; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+31; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+32; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+33; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+34; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+35; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+36; 0; RECHAZO_TOKEN; Solicitud ESTADO rechazada desde V1 por token invalido
+37; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+38; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+39; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+40; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+41; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+42; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+43; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+44; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+45; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+46; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+47; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+48; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+49; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+50; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+51; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+52; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+53; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+54; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+55; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+56; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+57; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+58; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+59; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V2 por token invalido
+60; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+61; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+62; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+63; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+64; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+65; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V3 por token invalido
+66; 0; RECHAZO_TOKEN; Solicitud TURNO rechazada desde V1 por token invalido
+67; 0; RECHAZO_TOKEN; Solicitud ESTADO rechazada desde V1 por token invalido
+1; 0; INICIO_COORDINADOR; Cupo=10, Modo=NORMAL (con exclusion mutua)
+2; 0; TURNO_ASIGNADO; Turno #1 entregado a V3
+3; 0; TURNO_ASIGNADO; Turno #2 entregado a V3
+4; 0; TURNO_ASIGNADO; Turno #3 entregado a V3
+5; 0; TURNO_ASIGNADO; Turno #4 entregado a V1
+6; 0; TURNO_ASIGNADO; Turno #5 entregado a V2
+7; 0; TURNO_ASIGNADO; Turno #6 entregado a V1
+8; 0; TURNO_ASIGNADO; Turno #7 entregado a V2
+9; 0; TURNO_ASIGNADO; Turno #8 entregado a V2
+10; 0; TURNO_ASIGNADO; Turno #9 entregado a V2
+11; 0; TURNO_ASIGNADO; Turno #10 entregado a V3
+12; 0; TURNO_RECHAZADO; Cupo agotado (10) para V1
+13; 0; TURNO_RECHAZADO; Cupo agotado (10) para V1
+14; 0; TURNO_RECHAZADO; Cupo agotado (10) para V3
+15; 0; TURNO_RECHAZADO; Cupo agotado (10) para V1
+16; 0; TURNO_RECHAZADO; Cupo agotado (10) para V1
+17; 0; TURNO_RECHAZADO; Cupo agotado (10) para V3
+18; 0; TURNO_RECHAZADO; Cupo agotado (10) para V2
+19; 0; TURNO_RECHAZADO; Cupo agotado (10) para V1
+20; 0; TURNO_RECHAZADO; Cupo agotado (10) para V3
+21; 0; TURNO_RECHAZADO; Cupo agotado (10) para V2
+22; 0; TURNO_RECHAZADO; Cupo agotado (10) para V2
+23; 0; TURNO_RECHAZADO; Cupo agotado (10) para V3
+24; 0; TURNO_RECHAZADO; Cupo agotado (10) para V3
+25; 0; TURNO_RECHAZADO; Cupo agotado (10) para V3
+26; 0; TURNO_RECHAZADO; Cupo agotado (10) para V1
+27; 0; TURNO_RECHAZADO; Cupo agotado (10) para V1
+28; 0; TURNO_RECHAZADO; Cupo agotado (10) para V2
+29; 0; TURNO_RECHAZADO; Cupo agotado (10) para V1
+30; 0; TURNO_RECHAZADO; Cupo agotado (10) para V2
+31; 0; TURNO_RECHAZADO; Cupo agotado (10) para V2
+32; 0; ESTADO_CONSULTADO; Estado enviado a V1
