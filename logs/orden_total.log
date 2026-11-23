@@ -1,0 +1,1213 @@
+1;0;INICIO_COORDINADOR;Cupo=10, Modo=NORMAL (con exclusion mutua)
+1;1;INICIO_VENTANILLA;Ventanilla V1 iniciada
+1;2;INICIO_VENTANILLA;Ventanilla V2 iniciada
+1;3;INICIO_VENTANILLA;Ventanilla V3 iniciada
+1;3;INICIO_VENTANILLA;Ventanilla V3 iniciada
+2;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+2;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+2;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+2;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+3;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+4;0;VENTANILLA_ACTIVA;Ventanilla V1 paso de SIN_CONEXION a ACTIVA
+5;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+6;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+7;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+8;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+9;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+10;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+11;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+12;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+13;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+14;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+15;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+16;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+17;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+18;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+18;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+19;0;VENTANILLA_ACTIVA;Ventanilla V2 paso de SIN_CONEXION a ACTIVA
+19;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+20;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+21;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+21;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+22;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+22;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+23;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+23;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+24;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+24;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+25;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+25;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+26;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+26;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+27;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+27;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+28;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+28;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+29;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+29;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+30;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+30;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+31;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+31;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+32;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+32;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+33;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+33;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+34;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+34;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+35;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+35;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+36;0;VENTANILLA_ACTIVA;Ventanilla V3 paso de SIN_CONEXION a ACTIVA
+36;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+37;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+38;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+38;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+39;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+39;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+40;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+40;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+41;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+41;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+42;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+42;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+43;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+43;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+44;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+44;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+45;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+45;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+46;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+46;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+47;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+47;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+48;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+48;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+49;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+49;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+50;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+50;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+51;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+51;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+52;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+52;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+53;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+53;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+54;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+54;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+55;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+55;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+56;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+56;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+57;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+57;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+58;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+58;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+59;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+59;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+60;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+60;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+61;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+61;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+62;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+62;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+63;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+63;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+64;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+64;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+65;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+65;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+66;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+66;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+67;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+67;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+68;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+68;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+69;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+69;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+70;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+70;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+71;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+71;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+72;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+72;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+73;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+73;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+74;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+74;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+75;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+75;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+76;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+76;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+77;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+77;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+78;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+78;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+79;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+79;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+80;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+80;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+81;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+81;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+82;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+82;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+83;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+83;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+84;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+84;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+85;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+85;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+86;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+86;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+87;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+87;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+88;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+88;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+89;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+89;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+90;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+90;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+91;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+91;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+92;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+92;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+93;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+93;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+94;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+94;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+95;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+95;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+96;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+96;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+97;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+97;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+98;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+98;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+99;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+99;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+100;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+100;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+101;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+101;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+102;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+102;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+103;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+103;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+104;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+104;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+105;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+105;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+106;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+106;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+107;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+107;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+108;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+108;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+109;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+109;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+110;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+110;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+111;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+111;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+112;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+112;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+113;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+113;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+114;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+114;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+115;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+115;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+116;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+116;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+117;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+117;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+118;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+118;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+119;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+119;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+120;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+120;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+121;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+121;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+122;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+122;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+123;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+123;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+124;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+124;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+125;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+125;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+126;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+127;1;ENVIAR_TURNO;Solicitud TURNO enviada al coordinador
+128;0;RECIBIR_TURNO;Mensaje recibido desde V1
+129;0;TURNO_ASIGNADO;Turno #1 asignado a V1
+130;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+130;1;RECIBIR_ASIGNADO;Respuesta ASIGNADO recibida del coordinador
+131;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+131;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+132;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+132;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+133;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+133;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+134;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+134;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+135;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+135;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+136;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+136;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+137;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+137;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+138;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+138;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+139;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+139;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+140;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+140;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+141;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+141;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+142;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+143;1;ENVIAR_LLAMAR;Solicitud LLAMAR enviada al coordinador
+144;0;RECIBIR_LLAMAR;Mensaje recibido desde V1
+145;0;TURNO_LLAMADO;Turno #1 llamado por V1
+146;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+146;1;RECIBIR_LLAMADO;Respuesta LLAMADO recibida del coordinador
+147;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+147;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+148;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+148;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+149;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+149;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+150;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+150;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+151;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+151;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+152;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+152;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+153;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+153;1;ENVIAR_ESTADO;Solicitud ESTADO enviada al coordinador
+154;0;RECIBIR_ESTADO;Mensaje recibido desde V1
+154;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+155;0;ESTADO_ENVIADO;Estado enviado a V1
+155;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+156;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+156;1;RECIBIR_ESTADO;Respuesta ESTADO recibida del coordinador
+157;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+157;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+158;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+158;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+159;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+159;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+160;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+160;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+161;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+161;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+162;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+162;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+163;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+163;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+164;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+164;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+165;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+165;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+166;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+166;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+167;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+167;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+168;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+168;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+169;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+169;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+170;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+170;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+171;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+171;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+172;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+172;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+173;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+173;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+174;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+174;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+175;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+175;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+176;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+176;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+177;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+177;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+178;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+178;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+179;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+179;1;ENVIAR_TURNO;Solicitud TURNO enviada al coordinador
+180;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+180;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+181;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+181;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+182;0;RECIBIR_TURNO;Mensaje recibido desde V1
+182;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+183;0;RECHAZO_TOKEN;Solicitud TURNO rechazada desde V1 por token invalido
+183;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+184;1;RECIBIR_RECHAZADA;Respuesta RECHAZADA recibida del coordinador
+185;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+186;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+187;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+188;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+188;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+189;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+189;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+190;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+190;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+191;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+191;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+192;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+192;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+193;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+193;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+194;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+194;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+195;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+195;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+196;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+196;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+197;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+197;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+198;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+198;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+199;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+199;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+200;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+200;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+201;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+201;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+202;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+202;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+203;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+203;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+204;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+205;2;ENVIAR_TURNO;Solicitud TURNO enviada al coordinador
+206;0;RECIBIR_TURNO;Mensaje recibido desde V2
+207;0;TURNO_ASIGNADO;Turno #2 asignado a V2
+208;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+208;2;RECIBIR_ASIGNADO;Respuesta ASIGNADO recibida del coordinador
+209;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+209;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+210;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+210;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+211;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+211;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+212;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+212;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+213;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+213;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+214;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+215;2;ENVIAR_LLAMAR;Solicitud LLAMAR enviada al coordinador
+216;0;RECIBIR_LLAMAR;Mensaje recibido desde V2
+217;0;TURNO_LLAMADO;Turno #2 llamado por V2
+218;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+218;2;RECIBIR_LLAMADO;Respuesta LLAMADO recibida del coordinador
+219;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+219;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+220;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+220;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+221;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+221;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+222;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+222;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+223;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+223;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+224;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+225;2;ENVIAR_ESTADO;Solicitud ESTADO enviada al coordinador
+226;0;RECIBIR_ESTADO;Mensaje recibido desde V2
+227;0;ESTADO_ENVIADO;Estado enviado a V2
+228;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+228;2;RECIBIR_ESTADO;Respuesta ESTADO recibida del coordinador
+229;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+229;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+230;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+230;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+231;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+231;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+232;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+232;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+233;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+233;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+234;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+234;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+235;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+235;2;ENVIAR_TURNO;Solicitud TURNO enviada al coordinador
+236;0;RECIBIR_TURNO;Mensaje recibido desde V2
+236;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+237;0;RECHAZO_TOKEN;Solicitud TURNO rechazada desde V2 por token invalido
+237;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+238;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+238;2;RECIBIR_RECHAZADA;Respuesta RECHAZADA recibida del coordinador
+239;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+239;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+240;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+240;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+241;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+241;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+242;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+242;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+243;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+243;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+244;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+244;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+245;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+245;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+246;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+246;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+247;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+247;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+248;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+248;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+249;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+249;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+250;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+250;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+251;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+251;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+252;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+252;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+253;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+253;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+254;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+254;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+255;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+255;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+256;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+256;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+257;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+257;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+258;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+258;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+259;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+259;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+260;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+260;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+261;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+261;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+262;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+262;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+263;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+263;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+264;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+264;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+265;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+265;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+266;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+266;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+267;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+267;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+268;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+268;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+269;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+269;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+270;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+270;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+271;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+271;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+272;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+272;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+273;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+273;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+274;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+274;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+275;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+275;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+276;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+276;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+277;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+277;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+278;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+278;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+279;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+279;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+280;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+280;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+281;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+281;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+282;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+282;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+283;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+283;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+284;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+284;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+285;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+285;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+286;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+286;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+287;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+287;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+288;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+288;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+289;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+289;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+290;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+290;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+291;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+291;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+292;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+292;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+293;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+293;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+294;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+294;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+295;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+295;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+296;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+296;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+297;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+297;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+298;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+298;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+299;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+299;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+300;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+300;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+301;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+301;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+302;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+302;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+303;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+303;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+304;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+304;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+305;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+305;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+306;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+306;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+307;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+307;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+308;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+308;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+309;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+309;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+310;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+310;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+311;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+311;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+312;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+312;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+313;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+313;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+314;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+314;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+315;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+315;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+316;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+316;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+317;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+317;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+318;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+318;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+319;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+319;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+320;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+320;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+321;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+321;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+322;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+322;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+323;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+323;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+324;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+324;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+325;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+325;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+326;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+326;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+327;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+327;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+328;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+328;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+329;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+329;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+330;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+330;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+331;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+331;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+332;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+332;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+333;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+333;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+334;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+334;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+335;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+335;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+336;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+336;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+337;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+337;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+338;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+338;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+339;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+339;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+340;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+340;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+341;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+341;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+342;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+342;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+343;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+343;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+344;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+344;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+345;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+345;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+346;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+346;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+347;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+347;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+348;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+348;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+349;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+349;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+350;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+350;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+351;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+351;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+352;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+352;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+353;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+353;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+354;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+354;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+355;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+355;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+356;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+356;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+357;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+357;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+358;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+358;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+359;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+359;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+360;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+360;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+361;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+361;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+362;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+362;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+363;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+363;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+364;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+364;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+365;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+365;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+366;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+366;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+367;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+367;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+368;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+368;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+369;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+369;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+370;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+370;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+371;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+371;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+372;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+372;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+373;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+373;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+374;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+374;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+375;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+375;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+376;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+376;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+377;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+377;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+378;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+378;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+379;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+379;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+380;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+380;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+381;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+381;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+382;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+382;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+383;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+383;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+384;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+384;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+385;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+385;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+386;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+386;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+387;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+387;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+388;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+388;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+389;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+389;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+390;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+390;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+391;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+391;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+392;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+392;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+393;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+393;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+394;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+394;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+395;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+395;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+396;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+396;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+397;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+397;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+398;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+398;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+399;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+399;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+400;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+400;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+401;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+401;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+402;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+402;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+403;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+403;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+404;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+404;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+405;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+405;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+406;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+406;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+407;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+407;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+408;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+408;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+409;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+409;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+410;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+410;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+411;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+411;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+412;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+412;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+413;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+413;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+414;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+414;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+415;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+415;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+416;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+416;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+417;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+417;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+418;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+418;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+419;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+419;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+420;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+420;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+421;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+421;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+422;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+422;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+423;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+423;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+424;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+424;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+425;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+425;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+426;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+426;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+427;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+427;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+428;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+428;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+429;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+429;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+430;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+430;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+431;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+431;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+432;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+432;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+433;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+433;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+434;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+434;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+435;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+435;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+436;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+436;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+437;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+437;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+438;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+438;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+439;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+439;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+440;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+440;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+441;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+441;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+442;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+442;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+443;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+443;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+444;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+444;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+445;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+445;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+446;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+446;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+447;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+447;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+448;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+448;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+449;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+449;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+450;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+450;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+451;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+451;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+452;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+452;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+453;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+453;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+454;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+454;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+455;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+455;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+456;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+456;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+457;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+457;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+458;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+458;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+459;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+459;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+460;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+460;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+461;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+461;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+462;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+462;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+463;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+463;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+464;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+464;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+465;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+465;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+466;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+466;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+467;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+467;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+468;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+468;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+469;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+469;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+470;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+470;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+471;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+471;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+472;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+472;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+473;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+473;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+474;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+474;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+475;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+475;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+476;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+476;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+477;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+477;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+478;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+478;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+479;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+479;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+480;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+480;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+481;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+481;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+482;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+482;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+483;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+483;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+484;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+484;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+485;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+485;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+486;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+486;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+487;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+487;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+488;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+488;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+489;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+489;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+490;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+490;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+491;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+491;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+492;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+492;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+493;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+493;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+494;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+494;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+495;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+495;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+496;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+496;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+497;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+497;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+498;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+498;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+499;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+499;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+500;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+500;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+501;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+501;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+502;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+502;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+503;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+503;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+504;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+504;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+505;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+505;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+506;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+506;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+507;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+507;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+508;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+508;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+509;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+509;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+510;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+510;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+511;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+511;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+512;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+512;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+513;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+513;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+514;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+514;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+515;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+515;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+516;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+516;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+517;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+517;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+518;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+518;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+519;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+519;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+520;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+520;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+521;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+521;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+522;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+522;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+523;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+523;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+524;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+524;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+525;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+525;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+526;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+526;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+527;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+527;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+528;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+528;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+529;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+529;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+530;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+530;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+531;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+531;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+532;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+532;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+533;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+533;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+534;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+534;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+535;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+535;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+536;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+536;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+537;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+537;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+538;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+538;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+539;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+539;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+540;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+540;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+541;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+541;3;ENVIAR_TURNO;Solicitud TURNO enviada al coordinador
+542;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+542;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+543;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+543;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+544;0;RECIBIR_TURNO;Mensaje recibido desde V3
+544;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+545;0;TURNO_ASIGNADO;Turno #3 asignado a V3
+545;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+546;3;RECIBIR_ASIGNADO;Respuesta ASIGNADO recibida del coordinador
+547;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+548;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+549;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+550;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+550;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+551;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+551;3;ENVIAR_LLAMAR;Solicitud LLAMAR enviada al coordinador
+552;0;RECIBIR_LLAMAR;Mensaje recibido desde V3
+552;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+553;0;TURNO_LLAMADO;Turno #3 llamado por V3
+553;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+554;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+554;3;RECIBIR_LLAMADO;Respuesta LLAMADO recibida del coordinador
+555;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+555;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+556;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+556;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+557;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+557;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+558;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+558;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+559;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+559;3;ENVIAR_ESTADO;Solicitud ESTADO enviada al coordinador
+560;0;RECIBIR_ESTADO;Mensaje recibido desde V3
+560;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+561;0;ESTADO_ENVIADO;Estado enviado a V3
+561;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+562;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+562;3;RECIBIR_ESTADO;Respuesta ESTADO recibida del coordinador
+563;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+563;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+564;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+564;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+565;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+565;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+566;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+566;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+567;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+567;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+568;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+568;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+569;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+569;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+570;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+570;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+571;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+571;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+572;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+572;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+573;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+573;3;ENVIAR_TURNO;Solicitud TURNO enviada al coordinador
+574;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+574;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+575;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+575;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+576;0;RECIBIR_TURNO;Mensaje recibido desde V3
+576;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+577;0;RECHAZO_TOKEN;Solicitud TURNO rechazada desde V3 por token invalido
+577;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+578;3;RECIBIR_RECHAZADA;Respuesta RECHAZADA recibida del coordinador
+579;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+580;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+581;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+582;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+582;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+583;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+583;3;FIN_VENTANILLA;Ventanilla V3 cerrada por usuario
+584;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+584;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+585;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+585;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+586;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+586;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+587;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+587;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+588;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+588;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+589;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+589;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+590;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+590;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+591;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+591;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+592;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+592;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+593;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+593;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+594;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+594;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+595;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+595;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+596;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+596;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+597;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+597;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+598;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+598;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+599;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+599;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+600;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+600;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+601;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+601;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+602;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+602;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+603;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+603;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+604;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+604;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+605;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+605;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+606;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+606;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+607;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+607;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+608;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+608;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+609;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+609;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+610;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+610;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+611;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+611;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+612;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+612;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+613;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+613;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+614;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+614;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+615;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+615;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+616;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+616;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+617;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+617;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+618;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+618;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+619;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+619;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+620;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+620;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+621;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+621;3;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+622;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+622;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+623;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+623;2;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+624;0;RECIBIR_LATIDO;Mensaje recibido desde V3
+624;1;RECIBIR_OK;Respuesta OK recibida del coordinador
+625;0;ACK_LATIDO;Confirmacion de latido enviada a V3
+625;1;ENVIAR_LATIDO;Solicitud LATIDO enviada al coordinador
+626;0;RECIBIR_LATIDO;Mensaje recibido desde V2
+626;3;RECIBIR_OK;Respuesta OK recibida del coordinador
+627;0;ACK_LATIDO;Confirmacion de latido enviada a V2
+628;0;RECIBIR_LATIDO;Mensaje recibido desde V1
+628;2;RECIBIR_OK;Respuesta OK recibida del coordinador
+629;0;ACK_LATIDO;Confirmacion de latido enviada a V1
+630;1;RECIBIR_OK;Respuesta OK recibida del coordinador
