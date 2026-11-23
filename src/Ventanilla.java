@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
@@ -11,13 +12,13 @@ import java.util.Properties;
 import java.util.Scanner;
 
 public class Ventanilla {
-    private static final int INTERVALO_LATIDO_MS = 2000; // C1: Latido cada 2 segundos
+    private static final int INTERVALO_LATIDO_MS = 2000;
 
     private final int id;
     private final String host;
     private final int puerto;
     private final String token;
-    private int reloj = 0;
+    private final RelojLamport reloj;
     private volatile boolean coordinadorActivo = true;
 
     public Ventanilla(int id, String host, int puerto, String token) {
@@ -25,32 +26,44 @@ public class Ventanilla {
         this.host = host;
         this.puerto = puerto;
         this.token = token;
+        this.reloj = new RelojLamport(id, "ventanilla_" + id);
+        this.reloj.eventoLocal("INICIO_VENTANILLA", "Ventanilla V" + id + " iniciada");
     }
 
-    public synchronized Map<String, String> enviarSolicitud(String tipo, String tokenEnviar) throws IOException {
-        reloj++;
+    public Map<String, String> enviarSolicitud(String tipo, String tokenEnviar) throws IOException {
+        // D1: Incrementar Lamport antes de enviar (incluidos los latidos)
+        int lEnvio = reloj.enviar("ENVIAR_" + tipo, "Solicitud " + tipo + " enviada al coordinador");
+
         String json = MensajeJson.construir(
                 "tipo", tipo,
                 "token", tokenEnviar,
                 "ventanilla", id,
-                "lamport", reloj
+                "lamport", lEnvio
         );
 
-        try (
-                Socket socket = new Socket(host, puerto);
-                PrintWriter out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8), true);
-                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8))
-        ) {
+        try (Socket socket = new Socket()) {
+            socket.connect(new InetSocketAddress(host, puerto), 3000);
+            socket.setSoTimeout(3000);
+
+            PrintWriter out = new PrintWriter(new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8), true);
+            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8));
+
             out.println(json);
             String respuesta = in.readLine();
             if (respuesta == null) {
                 throw new IOException("Sin respuesta del coordinador");
             }
-            return MensajeJson.parsear(respuesta);
+
+            Map<String, String> resp = MensajeJson.parsear(respuesta);
+            int lRemoto = Integer.parseInt(resp.getOrDefault("lamport", "0"));
+            String resultado = resp.getOrDefault("resultado", "DESCONOCIDO");
+
+            // D1: Actualizar Lamport a max(local, recibido) + 1 al recibir respuesta
+            reloj.recibir(lRemoto, "RECIBIR_" + resultado, "Respuesta " + resultado + " recibida del coordinador");
+            return resp;
         }
     }
 
-    // Requerimiento C1: Envia latido cada 2 segundos en segundo plano
     public void iniciarLatidos() {
         Thread hiloLatidos = new Thread(() -> {
             while (true) {
@@ -58,13 +71,15 @@ public class Ventanilla {
                     enviarSolicitud("LATIDO", token);
                     if (!coordinadorActivo) {
                         coordinadorActivo = true;
-                        System.out.println("\n[V" + id + "] Conexion restablecida con el coordinador.");
+                        int lRec = reloj.eventoLocal("RECONEXION_COORDINADOR", "Conexion restablecida con coordinador");
+                        System.out.println("\n[V" + id + " | L=" + lRec + "] Conexion restablecida con el coordinador.");
                         System.out.print("V" + id + "> ");
                     }
                 } catch (IOException e) {
+                    int lErr = reloj.eventoLocal("FALLO_LATIDO", "Sin respuesta del coordinador");
                     if (coordinadorActivo) {
                         coordinadorActivo = false;
-                        System.out.println("\n[V" + id + "] ALERTA: Coordinador no responde al latido.");
+                        System.out.println("\n[V" + id + " | L=" + lErr + "] ALERTA: Coordinador no responde al latido.");
                         System.out.print("V" + id + "> ");
                     }
                 }
@@ -82,9 +97,9 @@ public class Ventanilla {
     }
 
     public void iniciarConsola() {
-        iniciarLatidos(); // Arranca los latidos automaticos
+        iniciarLatidos();
 
-        System.out.println("=== VENTANILLA V" + id + " (Latidos cada 2s activos) ===");
+        System.out.println("=== VENTANILLA V" + id + " (Lamport y Latidos activos) ===");
         System.out.println("Ordenes: turno | llamar | estado | token_malo | salir");
 
         try (Scanner sc = new Scanner(System.in, StandardCharsets.UTF_8)) {
@@ -94,31 +109,33 @@ public class Ventanilla {
                 String orden = sc.nextLine().trim().toLowerCase();
 
                 if (orden.isEmpty()) continue;
-                if ("salir".equals(orden)) break;
+                if ("salir".equals(orden)) {
+                    reloj.eventoLocal("FIN_VENTANILLA", "Ventanilla V" + id + " cerrada por usuario");
+                    break;
+                }
 
                 try {
                     switch (orden) {
                         case "turno" -> {
                             Map<String, String> r = enviarSolicitud("TURNO", token);
                             if ("ASIGNADO".equals(r.get("resultado"))) {
-                                System.out.println("-> ASIGNADO turno #" + r.get("numero")
+                                System.out.println("[L=" + reloj.getValor() + "] -> ASIGNADO turno #" + r.get("numero")
                                         + " (" + r.get("emitidos") + "/" + r.get("cupo") + ")");
                             } else {
-                                System.out.println("-> RECHAZADA: " + r.get("motivo"));
+                                System.out.println("[L=" + reloj.getValor() + "] -> RECHAZADA: " + r.get("motivo"));
                             }
                         }
                         case "llamar" -> {
                             Map<String, String> r = enviarSolicitud("LLAMAR", token);
                             if ("LLAMADO".equals(r.get("resultado"))) {
-                                System.out.println("-> LLAMANDO al turno #" + r.get("numero"));
+                                System.out.println("[L=" + reloj.getValor() + "] -> LLAMANDO al turno #" + r.get("numero"));
                             } else {
-                                System.out.println("-> RECHAZADA: " + r.get("motivo"));
+                                System.out.println("[L=" + reloj.getValor() + "] -> RECHAZADA: " + r.get("motivo"));
                             }
                         }
                         case "estado" -> {
-                            // Requerimiento C3: Muestra activas y caidas
                             Map<String, String> r = enviarSolicitud("ESTADO", token);
-                            System.out.println("-> ESTADO: Emitidos=" + r.get("emitidos") + "/" + r.get("cupo")
+                            System.out.println("[L=" + reloj.getValor() + "] -> ESTADO: Emitidos=" + r.get("emitidos") + "/" + r.get("cupo")
                                     + " | Atendidos=" + r.get("atendidos")
                                     + " | En espera=" + r.get("en_espera")
                                     + " | Activas=" + r.get("activas")
@@ -126,13 +143,14 @@ public class Ventanilla {
                         }
                         case "token_malo" -> {
                             Map<String, String> r = enviarSolicitud("TURNO", "TOKEN_INCORRECTO");
-                            System.out.println("-> Respuesta token invalido: "
+                            System.out.println("[L=" + reloj.getValor() + "] -> Respuesta token invalido: "
                                     + r.get("resultado") + " (" + r.get("motivo") + ")");
                         }
                         default -> System.out.println("Orden no valida. Use: turno, llamar, estado, token_malo, salir");
                     }
                 } catch (IOException e) {
-                    System.out.println("-> ERROR: Coordinador caido. Operacion cancelada para mantener consistencia.");
+                    int lErr = reloj.eventoLocal("ERROR_COORDINADOR_CAIDO", "Operacion '" + orden + "' abortada por coordinador caido");
+                    System.out.println("[L=" + lErr + "] -> ERROR: Coordinador caido. Operacion cancelada para mantener consistencia.");
                 }
             }
         }

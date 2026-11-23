@@ -7,10 +7,6 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,53 +18,38 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Coordinador {
-    private static final long TIMEOUT_CAIDA_MS = 6000L; // C2: 6 segundos sin latidos
+    private static final long TIMEOUT_CAIDA_MS = 6000L;
 
     private final int cupo;
     private final String tokenValido;
     private final boolean modoInseguro;
-    private final Path rutaLog;
+    private final RelojLamport reloj;
 
     private final Object lockTurnos = new Object();
     private final Object lockLatidos = new Object();
 
     private int emitidos = 0;
     private int atendidos = 0;
-    private int reloj = 0;
     private final Queue<Integer> colaEspera = new LinkedList<>();
 
     private final Map<Integer, Long> ultimoLatido = new ConcurrentHashMap<>();
     private final Map<Integer, String> estadoVentanillas = new ConcurrentHashMap<>();
 
-    public Coordinador(int cupo, String tokenValido, boolean modoInseguro) throws IOException {
+    public Coordinador(int cupo, String tokenValido, boolean modoInseguro) {
         this.cupo = cupo;
         this.tokenValido = tokenValido;
         this.modoInseguro = modoInseguro;
-        Files.createDirectories(Paths.get("logs"));
-        this.rutaLog = Paths.get("logs", "coordinador.log");
+        this.reloj = new RelojLamport(0, "coordinador");
 
         for (int v : new int[]{1, 2, 3}) {
             estadoVentanillas.put(v, "SIN_CONEXION");
         }
 
         String modo = modoInseguro ? "INSEGURO (pausa 50 ms)" : "NORMAL (con exclusion mutua)";
-        registrarLog("INICIO_COORDINADOR", "Cupo=" + cupo + ", Modo=" + modo);
+        reloj.eventoLocal("INICIO_COORDINADOR", "Cupo=" + cupo + ", Modo=" + modo);
         System.out.println("[COORDINADOR 0] Iniciado | Cupo=" + cupo + " | Modo=" + modo);
     }
 
-    private synchronized int registrarLog(String evento, String detalle) {
-        reloj++;
-        String linea = reloj + "; 0; " + evento + "; " + detalle + System.lineSeparator();
-        try {
-            Files.writeString(rutaLog, linea, StandardCharsets.UTF_8,
-                    StandardOpenOption.CREATE, StandardOpenOption.APPEND);
-        } catch (IOException e) {
-            System.err.println("Error escribiendo bitacora: " + e.getMessage());
-        }
-        return reloj;
-    }
-
-    // Requerimiento C2: Hilo que verifica cada 500 ms si alguna ventanilla supero 6s sin latidos
     public void iniciarMonitorLatidos() {
         Thread monitor = new Thread(() -> {
             while (true) {
@@ -86,9 +67,11 @@ public class Coordinador {
                         if (ultimo != null && (ahora - ultimo) > TIMEOUT_CAIDA_MS) {
                             if ("ACTIVA".equals(estadoVentanillas.get(vid))) {
                                 estadoVentanillas.put(vid, "CAIDA");
-                                int l = registrarLog("VENTANILLA_CAIDA",
-                                        "Ventanilla V" + vid + " sin latidos durante mas de 6 segundos");
-                                System.out.println("[COORDINADOR] ALERTA: Ventanilla V" + vid + " marcada como CAIDA (L=" + l + ")");
+                                int l = reloj.eventoLocal(
+                                        "VENTANILLA_CAIDA",
+                                        "Ventanilla V" + vid + " sin latidos durante >6s"
+                                );
+                                System.out.println("[COORDINADOR | L=" + l + "] ALERTA: Ventanilla V" + vid + " CAIDA");
                             }
                         }
                     }
@@ -104,10 +87,15 @@ public class Coordinador {
         String tipo = msg.getOrDefault("tipo", "");
         String token = msg.getOrDefault("token", "");
         int vid = Integer.parseInt(msg.getOrDefault("ventanilla", "-1"));
+        int lamportRemoto = Integer.parseInt(msg.getOrDefault("lamport", "0"));
+
+        // D1: Actualizar reloj de Lamport al recibir mensaje
+        reloj.recibir(lamportRemoto, "RECIBIR_" + tipo, "Mensaje recibido desde V" + vid);
 
         // A3: Validacion de token
         if (token.isEmpty() || !tokenValido.equals(token)) {
-            int l = registrarLog("RECHAZO_TOKEN", "Solicitud " + tipo + " rechazada desde V" + vid + " por token invalido");
+            int l = reloj.enviar("RECHAZO_TOKEN", "Solicitud " + tipo + " rechazada desde V" + vid + " por token invalido");
+            System.out.println("[COORDINADOR | L=" + l + "] RECHAZO: Token invalido desde V" + vid);
             return MensajeJson.construir(
                     "tipo", "RESPUESTA",
                     "resultado", "RECHAZADA",
@@ -116,31 +104,34 @@ public class Coordinador {
             );
         }
 
-        // Requerimientos C1 y C2: Recepcion de latidos y reactivacion
+        // C1-C2: Latidos
         if ("LATIDO".equals(tipo)) {
             synchronized (lockLatidos) {
                 ultimoLatido.put(vid, System.currentTimeMillis());
                 String estadoAnterior = estadoVentanillas.getOrDefault(vid, "SIN_CONEXION");
                 if (!"ACTIVA".equals(estadoAnterior)) {
                     estadoVentanillas.put(vid, "ACTIVA");
-                    int l = registrarLog("VENTANILLA_ACTIVA",
-                            "Ventanilla V" + vid + " paso de " + estadoAnterior + " a ACTIVA");
-                    System.out.println("[COORDINADOR] INFO: Ventanilla V" + vid + " marcada como ACTIVA (L=" + l + ")");
+                    int lAct = reloj.eventoLocal(
+                            "VENTANILLA_ACTIVA",
+                            "Ventanilla V" + vid + " paso de " + estadoAnterior + " a ACTIVA"
+                    );
+                    System.out.println("[COORDINADOR | L=" + lAct + "] INFO: Ventanilla V" + vid + " ACTIVA");
                 }
             }
+            int lResp = reloj.enviar("ACK_LATIDO", "Confirmacion de latido enviada a V" + vid);
             return MensajeJson.construir(
                     "tipo", "RESPUESTA",
                     "resultado", "OK",
-                    "lamport", reloj
+                    "lamport", lResp
             );
         }
 
-        // B1 y B3: Asignacion de turnos
+        // B1-B3: Asignacion de turnos
         if ("TURNO".equals(tipo)) {
             if (!modoInseguro) {
                 synchronized (lockTurnos) {
                     if (emitidos >= cupo) {
-                        int l = registrarLog("TURNO_RECHAZADO", "Cupo agotado (" + cupo + ") para V" + vid);
+                        int l = reloj.enviar("TURNO_RECHAZADO", "Cupo agotado (" + cupo + ") para V" + vid);
                         return MensajeJson.construir(
                                 "tipo", "RESPUESTA",
                                 "resultado", "RECHAZADA",
@@ -153,8 +144,8 @@ public class Coordinador {
                     emitidos++;
                     int numero = emitidos;
                     colaEspera.add(numero);
-                    int l = registrarLog("TURNO_ASIGNADO", "Turno #" + numero + " entregado a V" + vid);
-                    System.out.println("[COORDINADOR] Turno #" + numero + "/" + cupo + " asignado a V" + vid);
+                    int l = reloj.enviar("TURNO_ASIGNADO", "Turno #" + numero + " asignado a V" + vid);
+                    System.out.println("[COORDINADOR | L=" + l + "] Turno #" + numero + "/" + cupo + " -> V" + vid);
                     return MensajeJson.construir(
                             "tipo", "RESPUESTA",
                             "resultado", "ASIGNADO",
@@ -167,7 +158,7 @@ public class Coordinador {
             } else {
                 int actual = emitidos;
                 if (actual >= cupo) {
-                    int l = registrarLog("TURNO_RECHAZADO", "Cupo agotado (" + cupo + ") para V" + vid);
+                    int l = reloj.enviar("TURNO_RECHAZADO", "Cupo agotado (" + cupo + ") para V" + vid);
                     return MensajeJson.construir(
                             "tipo", "RESPUESTA",
                             "resultado", "RECHAZADA",
@@ -187,8 +178,8 @@ public class Coordinador {
                 synchronized (colaEspera) {
                     colaEspera.add(numero);
                 }
-                int l = registrarLog("TURNO_ASIGNADO_INSEGURO", "Turno #" + numero + " entregado a V" + vid);
-                System.out.println("[COORDINADOR -INSEGURO] Turno #" + numero + "/" + cupo + " asignado a V" + vid);
+                int l = reloj.enviar("TURNO_ASIGNADO_INSEGURO", "Turno #" + numero + " asignado a V" + vid);
+                System.out.println("[COORDINADOR -INSEGURO | L=" + l + "] Turno #" + numero + "/" + cupo + " -> V" + vid);
                 return MensajeJson.construir(
                         "tipo", "RESPUESTA",
                         "resultado", "ASIGNADO",
@@ -204,7 +195,7 @@ public class Coordinador {
         if ("LLAMAR".equals(tipo)) {
             synchronized (lockTurnos) {
                 if (colaEspera.isEmpty()) {
-                    int l = registrarLog("LLAMAR_RECHAZADO", "No hay turnos en espera para V" + vid);
+                    int l = reloj.enviar("LLAMAR_RECHAZADO", "No hay turnos en espera para V" + vid);
                     return MensajeJson.construir(
                             "tipo", "RESPUESTA",
                             "resultado", "RECHAZADA",
@@ -214,8 +205,8 @@ public class Coordinador {
                 }
                 int turnoLlamado = colaEspera.poll();
                 atendidos++;
-                int l = registrarLog("TURNO_LLAMADO", "Turno #" + turnoLlamado + " llamado por V" + vid);
-                System.out.println("[COORDINADOR] V" + vid + " llama al turno #" + turnoLlamado);
+                int l = reloj.enviar("TURNO_LLAMADO", "Turno #" + turnoLlamado + " llamado por V" + vid);
+                System.out.println("[COORDINADOR | L=" + l + "] V" + vid + " llama al turno #" + turnoLlamado);
                 return MensajeJson.construir(
                         "tipo", "RESPUESTA",
                         "resultado", "LLAMADO",
@@ -227,7 +218,7 @@ public class Coordinador {
             }
         }
 
-        // Requerimiento C3: Estado incluye ventanillas activas y caidas
+        // C3: Estado
         if ("ESTADO".equals(tipo)) {
             synchronized (lockTurnos) {
                 synchronized (lockLatidos) {
@@ -241,7 +232,7 @@ public class Coordinador {
                             caidas.add(v);
                         }
                     }
-                    int l = registrarLog("ESTADO_CONSULTADO", "Estado enviado a V" + vid);
+                    int l = reloj.enviar("ESTADO_ENVIADO", "Estado enviado a V" + vid);
                     return MensajeJson.construir(
                             "tipo", "RESPUESTA",
                             "resultado", "ESTADO",
@@ -257,7 +248,7 @@ public class Coordinador {
             }
         }
 
-        int l = registrarLog("SOLICITUD_INVALIDA", "Tipo desconocido: " + tipo);
+        int l = reloj.enviar("SOLICITUD_INVALIDA", "Tipo desconocido: " + tipo);
         return MensajeJson.construir(
                 "tipo", "RESPUESTA",
                 "resultado", "RECHAZADA",
@@ -284,7 +275,7 @@ public class Coordinador {
         String token = props.getProperty("token", "").trim();
 
         Coordinador coord = new Coordinador(cupo, token, inseguro);
-        coord.iniciarMonitorLatidos(); // Inicia deteccion de ventanillas caidas
+        coord.iniciarMonitorLatidos();
 
         ExecutorService pool = Executors.newCachedThreadPool();
 
