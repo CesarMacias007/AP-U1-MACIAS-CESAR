@@ -99,3 +99,8 @@ pdflatex -interaction=nonstopmode entrega_SGA.tex
 ## 4. Declaración de Código Reutilizado
 
 No se reutilizó código. Todo el código fue desarrollado de forma individual para la evaluación.
+
+
+
+<img width="1347" height="641" alt="image" src="https://github.com/user-attachments/assets/409fadba-b5a0-4f60-96cc-295e308383b6" />
+
